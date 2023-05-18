@@ -7,6 +7,7 @@ import MailList from '../../components/mailList/MailList';
 import PropertyList from '../../components/propertyList/PropertyList';
 import Footer from '../../components/footer/Footer';
 import './home.css';
+import Loading from '../../components/loading/Loading';
 
 const Home = () => {
   return (

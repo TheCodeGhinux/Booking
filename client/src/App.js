@@ -1,9 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
-import Home from './pages/home/Home'
+import './App.css';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/home/Home';
 import List from './pages/list/List';
 import Hotel from './pages/hotel/Hotel';
+import axios from 'axios';
 
 function App() {
+  axios.defaults.baseURL = `http://localhost:5000`;
   return (
     <Router>
       <Routes>

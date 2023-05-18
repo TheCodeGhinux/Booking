@@ -9,14 +9,16 @@ import userRoute from './routes/users.js'
 import hotelRoute from './routes/hotels.js'
 import roomsRoute from './routes/rooms.js'
 
-
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
+
 
 const app = express()
 dotenv.config()
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(express.urlencoded({ extended: true })); // support encoded bodies
+app.use(cors())
 
 const connect = async () => {
   try {
