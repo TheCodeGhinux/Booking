@@ -5,6 +5,7 @@ import {
   faPerson,
   faPlane,
   faTaxi,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
@@ -13,8 +14,9 @@ import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -59,6 +61,8 @@ const Header = ({ type }) => {
       .replace(/(^|\s)\w/g, (match) => match.toUpperCase());
   };
 
+  const { user } = useContext(AuthContext);
+
   return (
     <div className='header'>
       <div
@@ -97,7 +101,18 @@ const Header = ({ type }) => {
               Get rewarded for your travels – unlock instant savings of 10% or
               more with a free Lamabooking account
             </p>
-            <button className='headerBtn'>Sign in / Register</button>
+            {user ? (
+              <Link
+                to='/'
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                className='navUserCon'
+              >
+                <FontAwesomeIcon icon={faUser} />
+                <h3 className=''>{user.username}</h3>
+              </Link>
+            ) : (
+              <button className='headerBtn'>Sign in / Register</button>
+            )}
             <div className='headerSearch'>
               <div className='headerSearchItem'>
                 <FontAwesomeIcon icon={faBed} className='headerIcon' />

@@ -25,3 +25,12 @@
   cursor: pointer;
   color: #003580;
 }
+
+.navUserCon {
+  top: 0;
+  position: fixed;
+  right: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

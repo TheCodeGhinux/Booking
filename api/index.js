@@ -33,6 +33,11 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected");
 })
 
+mongoose.connection.on("connected", () => {
+  console.log("mongoDB connected");
+})
+
+
 // MIDDLEWARES
 
 app.use(cookieParser());
@@ -51,9 +56,6 @@ app.use((error, req, res, next) => {
 
   return res.status(errorStatus).json(errorMessage)
 })
-// mongoose.connection.on("connected", () => {
-//   console.log("mongoDB connected");
-// })
 
 app.listen(5000, () => {
   connect()

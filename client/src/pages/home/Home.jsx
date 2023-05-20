@@ -9,7 +9,8 @@ import Footer from '../../components/footer/Footer';
 import './home.css';
 import Loading from '../../components/loading/Loading';
 
-const Home = () => {
+const Home = ({user}) => {
+  console.log(user);
   return (
     <div>
       <Navbar />
